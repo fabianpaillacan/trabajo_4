@@ -8,8 +8,8 @@
 using namespace std;
 
 class Persona {
-  private: 
-  Fecha *fecha_nacimiento;
+  protected: 
+  //Fecha *fecha_nacimiento;
   RUN *run;
   string nombre;
   string apellidoPaterno;
@@ -17,10 +17,9 @@ class Persona {
   string genero;
 
   public:
-  Persona(string nombre,string apellidoPaterno, string apellidoMaterno, string genero);
+  /*Persona(string nombre,string apellidoPaterno, string apellidoMaterno, string genero);*/
+  
   ~Persona();
-  int edad();//calcula la edad del paciente
-  string getFecha_nacimiento();
   string getnombre_apellido();
   string getrun();
   RUN* getRunObj();
@@ -28,10 +27,16 @@ class Persona {
   string getapellidoPaterno();
   string getapellidoMaterno();
   string getgenero();
-  Fecha* getfechaObj();
+  void setNombre();
+  void setApellidopaterno();
+  void setApellidoMaterno();
+  void setRun();
   int setRun(string rut);
-  int setfecha_nacimiento(string fecha_nacimiento);
   string ver();
  
+ //int edad();//calcula la edad del paciente
+  //string getFecha_nacimiento();
+  //int setfecha_nacimiento(string fecha_nacimiento);
+  //Fecha* getfechaObj();
 };
 #endif

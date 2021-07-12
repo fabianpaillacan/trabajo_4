@@ -4,24 +4,24 @@
 
 using namespace std;
 
-Persona::Persona(string nombre, string apellidoPaterno, string apellidoMaterno, string genero) {
+/*Persona::Persona(string nombre, string apellidoPaterno, string apellidoMaterno, string genero) {
 
-    this -> fecha_nacimiento = new Fecha();
+    //this -> fecha_nacimiento = new Fecha();
     this -> run = new RUN();
     this -> nombre = nombre;
     this -> apellidoPaterno = apellidoPaterno;
     this -> apellidoMaterno = apellidoMaterno;
     this -> genero = genero;
 
-}
+}*/
 
 Persona::~Persona() {
 
 }
 
-string Persona::getFecha_nacimiento() {
+/*string Persona::getFecha_nacimiento() {
     return this -> fecha_nacimiento -> ver();
-}
+}*/
 
 string Persona::getrun() {
     return this -> run -> RUN::getRUN();
@@ -39,7 +39,7 @@ string Persona::getgenero() {
     return this -> genero;
 }
 
-string Persona::ver() {
+/*string Persona::ver() {
     return "\nFecha_nacimiento: " + this -> getFecha_nacimiento() +
         "\nEdad: " + to_string(this -> Persona::edad()) +
         "\nRun: " + this -> Persona::getrun() +
@@ -47,9 +47,9 @@ string Persona::ver() {
         "\nApellido Paterno: " + this -> getapellidoPaterno() +
         +"\nApellido Materno: " + this -> getapellidoMaterno() +
         "\nGenero: " + this -> getgenero();
-}
+}*/
 
-int Persona::edad() {
+/*int Persona::edad() {
 
     int aniosCumplidos = 0;
     int diaPaciente = this -> fecha_nacimiento -> getdia();
@@ -79,19 +79,19 @@ int Persona::edad() {
     aniosCumplidos = anioActual - anioPaciente;
 
     return aniosCumplidos;
-}
+}*/
 RUN * Persona::getRunObj() {
 
     return this -> run;
 }
-Fecha * Persona::getfechaObj() {
+/*Fecha * Persona::getfechaObj() {
 
     return this -> fecha_nacimiento;
-}
+}*/
 int Persona::setRun(string rut) {
     int success = this -> run -> setRUN(rut);
     return success;
 }
-int Persona::setfecha_nacimiento(string fecha_nacimiento) {
+/*int Persona::setfecha_nacimiento(string fecha_nacimiento) {
     return this -> fecha_nacimiento -> setFecha(fecha_nacimiento);
-}
+}*/

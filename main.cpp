@@ -6,17 +6,17 @@
 #include "Paciente.h"
 #include "Persona.h"
 #include "Tens.h"
-#include "nodoPaciente.h"
-#include "nodoTens.h"
+#include "colaPaciente.h"
+#include "pilaTens.h"
 
 #define delimitador ","
 
 using namespace std;
+int cont=0, x=0;
+int agregarDatos(string nombreFile, colaPaciente** listaPacientes);
 
-int agregarDatos(string nombreFile, nodoPaciente** listaPacientes);
 
-
-int agregarDatos(string nombreFile, nodoPaciente ** listaPacientes) {
+int agregarDatos(string nombreFile, colaPaciente ** listaPacientes) {
 
     Paciente * paciente;
 
@@ -53,16 +53,17 @@ int agregarDatos(string nombreFile, nodoPaciente ** listaPacientes) {
         int successRun, successFecha;
         successRun = paciente -> setRun(rut);
         successFecha = paciente -> setfecha_nacimiento(fecha_nacimiento);
-        //cout<<paciente->ver();
+       
         if (successRun != 0 && successFecha != 0) {
-            agregarNodo(listaPacientes, paciente);
+            InsertarCola(listaPacientes, paciente);
+         
         }
 
     }
     return contLineas;
 
 }
-void agregarTens(nodoTens** listaTens){
+void agregarTens(pilaTens** listaTens){
  string nombre, apellidoPaterno, apellidoMaterno, run, email,genero;
  int n=0;
 
@@ -87,7 +88,7 @@ void agregarTens(nodoTens** listaTens){
    
 
 }
-void crearListaTEST(nodoTens** listaTens){
+void crearListaTEST(pilaTens** listaTens){
 
 Tens* TENS=  new Tens("fabian","paillacan","huaitro", "fabianpailalcan", "jkasd");
 TENS->setRun("20922297-3");
@@ -101,45 +102,88 @@ TENS3->setRun("19270676-9");
 
 
 }
+/*template <class t>
+
+t conNodo(t* node){
+  int cont=0;
+    while (node!=NULL){
+        cont++;
+        node=node->siguiente;
+    }
+    return cont;
+}*/
 int main (){
 
     int contLinea=0;
-    nodoPaciente* listaPacientes=NULL;
-    nodoTens* listaTens=NULL;
-    contLinea=agregarDatos("Pacientes.csv", &listaPacientes);
+    colaPaciente* listaPacientes=NULL;
+    pilaTens* listaTens=NULL;
 
-    //agregarTens(&listaTens);
+   // Paciente* paciente=NULL;
 
-    //cout<<contLinea<<endl;
+   
+   int opc = 0;
+   int  a;
 
-    //printList(listaTens);
+    while (opc < 5)
 
-   // popNodo(&listaTens);
-     crearListaTEST(&listaTens);
-     cout<<"termine crear lista"<<endl;
+    {
+        cout << "................................................................";
+        cout << "\n";
+        cout << "|1| Ingresar Tens.\n";
+        cout << "|2| Mostrar Tens.\n";
+        cout << "|3| Cargar Pacientes.\n";
+        cout << "|4| Programar cita de Pacientes.\n";
+        cout << "|5| salir.\n";
+        cout << "................................................................\n";
+        cin >> opc;
+        switch (opc) {
+        case 1: {
+                crearListaTEST(&listaTens);  //este es solo de prueba, esta funcion los tens ya se agregaron. pero no es asi. 
+                getchar();
+                getchar();
+                system("clear");
+            break;
+        }
+        case 2: {
+                printList(listaTens);
+               
+                 cout<<"\nse han cargado: "<<contarNodos(listaTens)<<" de Tens"<<endl;
+            break;
+        }
+        case 3: {
+             agregarDatos("Pacientes.csv", &listaPacientes);
+             //se van a agregar de forma ordenada. la cabecera apuntara a la persona con mayor edad. la cola quedara de forma descendente.  
+             printList(listaPacientes);
+             cout<<"\nse han cargado: "<<contarNodos(listaPacientes)<<" de pacientes"<<endl;
+
+            break;
+        }
+        case 4: {
+            pop(listaPacientes);
+           
+            break;
+        }
+        }
+    }
+   
+   /*contLinea=agregarDatos("Pacientes.csv", &listaPacientes);
+   printList(listaPacientes);
+  
+  
+
+    crearListaTEST(&listaTens);
+     //cout<<"termine crear lista"<<endl;
     printList(listaTens);
+    x=3;
     cout<<"lista popNodo 1"<<endl;
     popNodo(&listaTens);
-    printList(listaTens);
+   printList(listaTens);
 
     cout<<"listapopNODO 2"<<endl;
     popNodo(&listaTens);
     printList(listaTens);
     cout<<"listapopNODO 3"<<endl;
     popNodo(&listaTens);
-    printList(listaTens);
-
-
-
-    //cout<<contarNodos(listaTens)<<endl;
-  /*Paciente* paciente= new Paciente("fabian","paillacan","huaitro","h");
-  
-  tens* TENS= new tens("erwin","paillacan","huaitro","20922297-3","erwinpaillacan@gmail.com");
-
-  TENS->setRun("20922297-3");
-  
-  cout<<TENS->getrun()<<endl;
-  cout<<TENS->getnombre()<<endl;
-  cout<<paciente->getnombre()<<endl;*/
+    printList(listaTens);*/
 
 }

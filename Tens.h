@@ -11,7 +11,6 @@ class Tens : public Persona{
   Tens(string nombre, string apellidoPaterno, string apellidoMaterno, string email, string genero);
   ~Tens();
   string ver();
-  //string email();
   string getEmail();
   void setEmail(string email); 
 };

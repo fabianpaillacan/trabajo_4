@@ -9,7 +9,6 @@ using namespace std;
 
 class Persona {
   protected: 
-  //Fecha *fecha_nacimiento;
   RUN *run;
   string nombre;
   string apellidoPaterno;
@@ -17,7 +16,6 @@ class Persona {
   string genero;
 
   public:
-  /*Persona(string nombre,string apellidoPaterno, string apellidoMaterno, string genero);*/
   
   ~Persona();
   string getnombre_apellido();
@@ -32,11 +30,7 @@ class Persona {
   void setApellidoMaterno();
   void setRun();
   int setRun(string rut);
-  string ver();
  
- //int edad();//calcula la edad del paciente
-  //string getFecha_nacimiento();
-  //int setfecha_nacimiento(string fecha_nacimiento);
-  //Fecha* getfechaObj();
+ 
 };
 #endif

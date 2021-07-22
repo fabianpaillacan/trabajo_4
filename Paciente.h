@@ -14,24 +14,11 @@ class Paciente: public Persona{
     Paciente(string nombre, string apellidoPaterno, string apellidoMaterno, string genero);
     ~Paciente();
     
-     //this -> fecha_nacimiento = new Fecha();
     int edad();
     Fecha* getfechaObj();
     int setfecha_nacimiento(string fecha_nacimiento);
     string getFecha_nacimiento();
+    string ver();
     
-    /*string getnombre_apellido();
-    string getrun();
-    RUN* getRunObj();
-    string getnombre();
-    string getapellidoPaterno();
-    string getapellidoMaterno();
-    string getgenero();
-    int setRun(string rut);*/
-    //string ver();
-
-
-
-
 };
 #endif

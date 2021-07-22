@@ -1,19 +1,19 @@
-#include "nodoTens.h"
+#include "pilaTens.h"
 #include "Tens.h"
 #include <iostream>
 #include <string.h>
 
 typedef char cadena[200];
-
-void agregarNodo(nodoTens** head_ref, Tens* tens){ 
+//int cont=0;
+void agregarNodo(pilaTens** head_ref, Tens* tens){ 
 //el nuevo nodo queda al final.
    
-    nodoTens* new_node = new nodoTens();
+    pilaTens* new_node = new pilaTens();
  
-    nodoTens *last = *head_ref;
+    pilaTens *last = *head_ref;
     new_node->tens = tens;
     new_node->siguiente = NULL;
- 
+    //cont++;
     if (*head_ref == NULL)
     {
         *head_ref = new_node;
@@ -24,29 +24,35 @@ void agregarNodo(nodoTens** head_ref, Tens* tens){
       
       last = last->siguiente;
       last->siguiente = new_node;
-   
+  
     return;
 }
-void popNodo(nodoTens** head_ref){
+void popNodo(pilaTens** head_ref){
   //saca el ultimo nodo de la lista, que es el mas reciente 
-  nodoTens* ptr;
+  //con esta funcion sale primero el ultimo en ingresar pero no se muestra por pantalla. hay un error en el ultimo nodo, osea en el primero en ingresar .
+  pilaTens* ptr;
   ptr=*head_ref;
+  pilaTens* primero= *head_ref;
+  
 
   if (ptr->siguiente==NULL){
     //cout<<ptr->tens->ver();
+    //delete (ptr); //aqui hay un problema de segmetatio fault. 
+    
     ptr=NULL;
     return;
   }
   while (ptr->siguiente->siguiente != NULL){
+    
     ptr=ptr->siguiente;
   }
 
   //cout<<ptr->siguiente->tens->ver();
-
+ 
   ptr->siguiente=NULL;
 }
 
-void printList(nodoTens *node){
+void printList(pilaTens *node){
 {
   if (node==NULL){
     
@@ -62,7 +68,7 @@ void printList(nodoTens *node){
     
 }
 
-int contarNodos(nodoTens *node){
+int contarNodos(pilaTens *node){
   int cont=0;
     while (node!=NULL){
         cont++;

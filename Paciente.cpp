@@ -61,12 +61,13 @@ int Paciente::setfecha_nacimiento(string fecha_nacimiento) {
     return this -> fecha_nacimiento -> setFecha(fecha_nacimiento);
 }
 
-string Persona::ver() {
-    return /*"\nFecha_nacimiento: " + this -> getFecha_nacimiento() +
-        "\nEdad: " + to_string(this -> Paciente::edad()) +*/
+string Paciente::ver() {
+    return "\nFecha_nacimiento: " + this -> getFecha_nacimiento() +
+       "\nEdad: " + to_string(this->edad()) +
         "\nRun: " + this -> Paciente::getrun() +
         "\nNombre: " + this -> getnombre() +
         "\nApellido Paterno: " + this -> getapellidoPaterno() +
         +"\nApellido Materno: " + this -> getapellidoMaterno() +
         "\nGenero: " + this -> getgenero();
+
 }
